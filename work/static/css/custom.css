@@ -1,0 +1,22 @@
+body {
+  padding-top: 70px;
+}
+section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.lnr {
+          display: inline-block;
+          fill: currentColor;
+          width: 2em;
+          height: 2em;
+          vertical-align: -0.05em;
+          stroke-width: 1;
+        }
+.services-icon {
+          margin-bottom: 20px;
+          font-size: 30px;
+        }
+.my-color {
+    background-color: #4CAF50;
+}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lanc</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="../../wf/bstest/css/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+    <div class="page-header">
+	  <h1>Example page header <small>Subtext for header</small></h1>
+	</div>
+    <!-- navbar-->
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-lg bg-light">
+    <a href="layout.html"><img src="../static/img/건후.jpg" style="width: 30%; margin-left: 30%" /></a>
+    <!-- user 객체는 장고 기본 객체이므로 모든 템플릿에서 사용 가능함 -->
+          <button type="button"
+              data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation" class="navbar-toggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+              <ul class="navbar-nav .col-auto" style="margin-left: 25%">
+                <li class="nav-item" style="font-size: 20px"><a href="#" class="nav-link">랜크</a></li>
+                <li class="nav-item" style="font-size: 20px"><a href="#" class="nav-link">모집공고</a></li>
+                <li class="nav-item" style="font-size: 20px"><a href="#" class="nav-link">랜크스토리</a></li>
+                <li class="nav-item" style="font-size: 20px"><a href="#" class="nav-link">장비판매</a></li>
+                <li class="nav-item" style="font-size: 20px"><a href="#" class="nav-link">고객센터</a></li>
+        </ul>
+      </div>
+    </nav><br/><br/><Br/><Br/>
+    {% if user.is_active %} <!-- 로그인되면 user.is_active() 함수가 참을 반환-->
+        <h4 class="welcome" style="margin-left: 65%">환영합니다,
+            <!-- firstof 태그는 뒤에 나오는 인자들 중에서 False 아닌 첫 인자를 선택함 -->
+            <strong>{% firstof user.get_short_name user.get_username %}</strong>님.
+            <button onclick="location.href='{% url 'password_change' %}'" style="background: #F4D74F ; color: white; padding: 10px; border-radius: 10px; ">비밀번호 변경</button>
+            <button onclick="location.href='{% url 'logout' %}'" style="background: #F4D74F ; color: white; padding: 10px; border-radius: 10px; ">로그아웃</button>
+        </h4>
+    {% else %}
+        <h4 style="margin-left: 75%">
+            <button onclick="location.href='{% url 'login' %}'" style="background: #F4D74F ; color: white; padding: 10px; border-radius: 10px; ">로그인</button>
+            <button onclick="location.href='{% url 'register' %}'" style="background: #F4D74F ; color: white; padding: 10px; border-radius: 10px; ">회원가입</button>
+        </h4>
+    {% endif %}
+  <!-- About Section -->
+  <section class="page-section " id="about" style="background: #FDC06E ">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="text-white mt-0">랜크는 언제나 여러분들을 위해 열려있습니다!</h2>
+          <hr class="divider light my-4">
+          <p class="text-white-50 mb-4">영상 제작이 처음인 분들을 위한 서비스가 갖춰져 있는 랜크! 랜크와 함께 좋은 영상 만들어봐요!</p>
+          <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">시작하기!</a>
+        </div>
+      </div>
+    </div>
+  </section><Br/><Br/><Br/>
+    <section class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <img src="../static/img/크리에이터.jpg" alt="..." class="img-fluid" style="width: 70%">
+          </div>
+          <div class="col-lg-6 order-2 order-lg-1"><br/><Br/><br/><br/>
+            <h1>랜크 사이트 소개</h1><br/>
+            <p class="lead">'랜크'는 개인이 방송하는 '1인 방송국' 이 많아지는 추세에 따라   새로 등장한 '크리에이터 매칭'을 서비스하는 기업입니다.
+                다른 도움 없이 기획, 디자인, 촬영, 편집을 모두 담당하며 활동하며 어려움을 겪는 크리에이터들에게 자신과 마음이 맞는 사람을 쉽게 구할 수 있는 편리함을 제공하겠습니다.</p>
+            <p>
+              <a href="#" class="btn shadow mr-2" style="background: #FDC06E; color: #1b1e21 ">자세히 알아보기</a>
+              <a href="#" class="btn" style="background: #FDC06E; color: #1b1e21 ">또 다른 조치</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section><br/><Br/>
+
+  <!-- Services Section -->
+  <section class="page-section" id="services">
+    <div class="container">
+      <h2 class="text-center mt-0">주요 서비스</h2>
+      <hr class="divider my-3">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-3x fa-gem text-primary mb-4"></i>
+            <h3 class="h4 mb-2">팀원 매칭</h3>
+            <p class="text-muted mb-0">함께 작업할 팀원을 원하는 조건에 맞추어 매칭해줍니다.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-3x fa-laptop-code text-primary mb-4"></i>
+            <h3 class="h4 mb-2">장비 구매</h3>
+            <p class="text-muted mb-0">방송을 만드는 데에 필요한 장비들을 구매할 수 있습니다.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-3x fa-globe text-primary mb-4"></i>
+            <h3 class="h4 mb-2">정보 제공</h3>
+            <p class="text-muted mb-0">영상, 박람회에 관한 정보 들을 제공받을 수 있습니다.</p>
+          </div>
+        </div>
+          <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-3x fa-globe text-primary mb-4"></i>
+            <h3 class="h4 mb-2">포트폴리오 열람</h3>
+            <p class="text-muted mb-0">다른 사람들의 포트폴리오를 열람할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><br/><br/><br/>
+
+    <section><br><br><br><br>
+        <h2 class="text-center mt-0">박람회 정보</h2>
+        <hr class="divider my-3">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style = "width: 70%;  align: center; margin-left: 15%">
+    <!-- Indicators -->
+    <ol class="carousel-indicators" style="align:center">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img  src="http://www.zamong.co.kr/wp-content/uploads/2018/07/Summer-Crreator_Academy_Facebook_Banner-180709.jpg" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="http://www.zamong.co.kr/wp-content/uploads/2017/04/%EC%A0%9C4%ED%9A%8C-1%EC%9D%B8%EB%AF%B8%EB%94%94%EC%96%B4-%EC%BD%98%ED%85%90%EC%B8%A0-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%84%B0-%EA%B3%B5%EB%AA%A8%EC%A0%84-%EC%8D%B8%EB%84%A4%EC%9D%BC_%EB%AF%B8%EB%94%94%EC%96%B4%EC%9E%90%EB%AA%BD.jpg"  style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="../static/img/223.jpg" style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+    </section><br/><br/><br/><Br/>
+
+  <!-- Portfolio Section -->
+  <!-- Portfolio-->
+    <section class="bg-light"><Br/>
+      <div class="container">
+        <h2 class="text-center mt-0">포트폴리오</h2>
+      <hr class="divider my-3">
+        <p class="lead text-center mt-0">크리에이터들이 참여한 프로젝트 포트폴리오</p>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card shadow border-0 h-100"><a href="#"><img src="http://img.vogue.co.kr/vogue/2019/05/style_5b0bcda07cfca.jpg" alt="" class="card-img-top"></a>
+              <div class="card-body">
+                <h5> <a href="#" class="text-dark">뷰티 유튜버 이사배 영상편집자의 포트폴리오</a></h5>
+                <p class="text-muted card-text">분야: 영상 편집 <br/> 장르: 뷰티 </p>
+                <p class="card-text"><a href="#">더 읽기</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow border-0 h-100"><a href="#"><img src="https://t1.daumcdn.net/cfile/tistory/2648AA4555F66D3D05" alt="" class="card-img-top" style="height: 115%;"></a>
+              <div class="card-body">
+                <h5> <a href="#" class="text-dark"><br/><br/> 대도서관 컨텐츠 기획자의 포트폴리오</a></h5>
+                <p class="text-muted card-text">분야: 컨텐츠 기획 <br/> 장르: 게임 </p>
+                <p class="card-text"><a href="#">더 읽기</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow border-0 h-100"><a href="#"><img src="https://post-phinf.pstatic.net/MjAxNzA0MTlfMTgg/MDAxNDkyNTgxMzUwNjE1.lvNjda85ujmMeLg31c-3oX4LDKx51F6SidIu5r9pkIwg.RUx6avpjUdND3k0T9eVro7EHbeTw0h3WedKFLX8mPWog.PNG/0.PNG?type=w1200" alt="" class="card-img-top" style="height: 120%"></a>
+              <div class="card-body">
+                <h5> <a href="#" class="text-dark"><br/><br/><br/>뷰티 유튜버 조효진 테마디자이너의 포트폴리오</a></h5>
+                <p class="text-muted card-text">분야: 디자이너 <br/> 장르: 뷰티</p>
+                <p class="card-text"><a href="#">더 읽기</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow border-0 h-100"><a href="#"><img src="https://i.ytimg.com/vi/pxAb4z8LZ4c/maxresdefault.jpg" alt="" class="card-img-top" style="height: 118%"></a>
+              <div class="card-body">
+                <h5> <a href="#" class="text-dark"><br/><br/><br/>브이로그 유튜버 소근커플 컨텐츠 기획자의 포트폴리오</a></h5>
+                <p class="text-muted card-text">분야: 컨텐츠 기획자 <br/> 장르: 예능, 일상</p>
+                <p class="card-text"><a href="#">더 읽기</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow border-0 h-100"><a href="#"><img src="https://t1.daumcdn.net/cfile/tistory/99E57C4C5A7839AB16" alt="" class="card-img-top" style="height: 116%"></a>
+              <div class="card-body">
+                <h5> <a href="#" class="text-dark"><br/><br/><br/>노래 커버 유튜버 제이플라 편집자의 포트폴리오 </a></h5>
+                <p class="text-muted card-text">분야: 영상 편집자 <br/> 장르: 음악</p>
+                <p class="card-text"><a href="#">더 읽기</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow border-0 h-100"><a href="#"><img src="https://i.ytimg.com/vi/cfF2b1YgqRA/maxresdefault.jpg" alt="" class="card-img-top" style="height: 120%"></a>
+              <div class="card-body">
+                <h5> <a href="#" class="text-dark"><br/><br/><br/>고양이브이로그 유튜버 크림히어로즈 촬영감독의 포트폴리오</a></h5>
+                <p class="text-muted card-text">분야: 촬영감독 <br/> 장르: 예능, 일상</p>
+                <p class="card-text"><a href="#">더 읽기</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer-->
+    <div class="py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h5>Lanc</h5>
+            <ul class="contact-info list-unstyled">
+              <li>대표 : 김이배안</li>
+              <li><a href="tel:123456789" class="text-dark">tel : +00 123 456 789</a></li>
+                <li>주소 : 서울시 성동구 행당동 956</li>
+                <li>사업자등록번호 : 555-59-555555</li>
+                <li>통신판매신고번호 : 제 2019-서울행당-5652-호</li>
+                <li>개인정보관리책임자 : 홍길동</li>
+                <li><a href="mailto:lanc6@hanmail.com" class="text-dark">lanc6@hanmail.com</a> </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h5>SNS</h5>
+            <ul class="links list-unstyled">
+              <li> <a href="https://www.facebook.com" class="text-muted" img src="img/1.png">11144</a></li>
+                <li> <a href="https://www.facebook.com" class="text-muted" img src="img/1.png"></a></li>
+                <img src="img/1.png">
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <h5>Favourites</h5>
+            <ul class="links list-unstyled">
+              <li> <a href="https://www.youtube.com/?gl=KR&hl=ko" class="text-muted">youtube</a></li>
+              <li> <a href="https://www.afreecatv.com/" class="text-muted">africa TV</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-3 text-warning">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 text-center text-md-left">
+            <p class="mb-md-0">&copy; 2019 Lanc. All rights reserved.                        </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+  </body>
+</html>
